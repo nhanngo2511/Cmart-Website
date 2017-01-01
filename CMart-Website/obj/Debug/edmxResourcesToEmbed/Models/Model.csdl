@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMART1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="IDAcc" />
+    </Key>
+    <Property Name="IDAcc" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Auth" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_Account" FromRole="Account" ToRole="Bill" />
+    <NavigationProperty Name="requestImports" Relationship="Self.FK_requestImport_Account" FromRole="Account" ToRole="requestImport" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="IDBill" />
+    </Key>
+    <Property Name="IDBill" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Recieved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Returned" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalQuantity" Type="Int32" Nullable="false" />
+    <Property Name="POS" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDAcc" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_Bill_Account" FromRole="Bill" ToRole="Account" />
+    <NavigationProperty Name="Bill_List" Relationship="Self.FK_Bill_List_Bill" FromRole="Bill" ToRole="Bill_List" />
+  </EntityType>
+  <EntityType Name="Bill_List">
+    <Key>
+      <PropertyRef Name="IDBill" />
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDBill" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="unitPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bill" Relationship="Self.FK_Bill_List_Bill" FromRole="Bill_List" ToRole="Bill" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Bill_List_Product" FromRole="Bill_List" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="BranchImport">
+    <Key>
+      <PropertyRef Name="IDBranchImport" />
+    </Key>
+    <Property Name="IDBranchImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDHeadImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Branch" Type="Int32" />
+    <Property Name="IDAcc" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="HeadImport" Relationship="Self.FK_BranchImport_HeadImport" FromRole="BranchImport" ToRole="HeadImport" />
+    <NavigationProperty Name="BranchImport_List" Relationship="Self.FK_BranchImport_List_BranchImport" FromRole="BranchImport" ToRole="BranchImport_List" />
+  </EntityType>
+  <EntityType Name="BranchImport_List">
+    <Key>
+      <PropertyRef Name="IDBranchImport" />
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDBranchImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BranchImport" Relationship="Self.FK_BranchImport_List_BranchImport" FromRole="BranchImport_List" ToRole="BranchImport" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_BranchImport_List_Product" FromRole="BranchImport_List" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="HeadImport">
+    <Key>
+      <PropertyRef Name="IDHeadImport" />
+    </Key>
+    <Property Name="IDHeadImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDrequestImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="TotalAmount" Type="Double" />
+    <Property Name="IDAcc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BranchImports" Relationship="Self.FK_BranchImport_HeadImport" FromRole="HeadImport" ToRole="BranchImport" />
+    <NavigationProperty Name="HeadImport_List" Relationship="Self.FK_HeadImport_List_HeadImport" FromRole="HeadImport" ToRole="HeadImport_List" />
+    <NavigationProperty Name="requestImport" Relationship="Self.FK_HeadImport_requestImport" FromRole="HeadImport" ToRole="requestImport" />
+  </EntityType>
+  <EntityType Name="HeadImport_List">
+    <Key>
+      <PropertyRef Name="IDHeadImport" />
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDHeadImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Expiration" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HeadImport" Relationship="Self.FK_HeadImport_List_HeadImport" FromRole="HeadImport_List" ToRole="HeadImport" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_HeadImport_List_Product" FromRole="HeadImport_List" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="PriceHistory">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_PriceHistory_Product" FromRole="PriceHistory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDSupplier" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bill_List" Relationship="Self.FK_Bill_List_Product" FromRole="Product" ToRole="Bill_List" />
+    <NavigationProperty Name="BranchImport_List" Relationship="Self.FK_BranchImport_List_Product" FromRole="Product" ToRole="BranchImport_List" />
+    <NavigationProperty Name="HeadImport_List" Relationship="Self.FK_HeadImport_List_Product" FromRole="Product" ToRole="HeadImport_List" />
+    <NavigationProperty Name="PriceHistories" Relationship="Self.FK_PriceHistory_Product" FromRole="Product" ToRole="PriceHistory" />
+    <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
+    <NavigationProperty Name="Promotions" Relationship="Self.FK_Promotion_Product" FromRole="Product" ToRole="Promotion" />
+    <NavigationProperty Name="requestImport_List" Relationship="Self.FK_requestImport_List_Product" FromRole="Product" ToRole="requestImport_List" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="IDType" />
+    </Key>
+    <Property Name="IDType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductType" FromRole="ProductType" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="IDPromotion" />
+    </Key>
+    <Property Name="IDPromotion" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Contents" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Promotion_Product" FromRole="Promotion" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="requestImport">
+    <Key>
+      <PropertyRef Name="IDRequestImport" />
+    </Key>
+    <Property Name="IDRequestImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="IDSupplier" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDAcc" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_requestImport_Account" FromRole="requestImport" ToRole="Account" />
+    <NavigationProperty Name="HeadImports" Relationship="Self.FK_HeadImport_requestImport" FromRole="requestImport" ToRole="HeadImport" />
+    <NavigationProperty Name="requestImport_List" Relationship="Self.FK_requestImport_List_requestImport" FromRole="requestImport" ToRole="requestImport_List" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_requestImport_Supplier" FromRole="requestImport" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="requestImport_List">
+    <Key>
+      <PropertyRef Name="IDRequestImport" />
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDRequestImport" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_requestImport_List_Product" FromRole="requestImport_List" ToRole="Product" />
+    <NavigationProperty Name="requestImport" Relationship="Self.FK_requestImport_List_requestImport" FromRole="requestImport_List" ToRole="requestImport" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="IDSupplier" />
+    </Key>
+    <Property Name="IDSupplier" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+    <NavigationProperty Name="requestImports" Relationship="Self.FK_requestImport_Supplier" FromRole="Supplier" ToRole="requestImport" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Bill_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="IDAcc" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="IDAcc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_requestImport_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="requestImport" Type="Self.requestImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="IDAcc" />
+      </Principal>
+      <Dependent Role="requestImport">
+        <PropertyRef Name="IDAcc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bill_List_Bill">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="Bill_List" Type="Self.Bill_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="IDBill" />
+      </Principal>
+      <Dependent Role="Bill_List">
+        <PropertyRef Name="IDBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bill_List_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Bill_List" Type="Self.Bill_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="Bill_List">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BranchImport_HeadImport">
+    <End Role="HeadImport" Type="Self.HeadImport" Multiplicity="1" />
+    <End Role="BranchImport" Type="Self.BranchImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadImport">
+        <PropertyRef Name="IDHeadImport" />
+      </Principal>
+      <Dependent Role="BranchImport">
+        <PropertyRef Name="IDHeadImport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BranchImport_List_BranchImport">
+    <End Role="BranchImport" Type="Self.BranchImport" Multiplicity="1" />
+    <End Role="BranchImport_List" Type="Self.BranchImport_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BranchImport">
+        <PropertyRef Name="IDBranchImport" />
+      </Principal>
+      <Dependent Role="BranchImport_List">
+        <PropertyRef Name="IDBranchImport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BranchImport_List_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="BranchImport_List" Type="Self.BranchImport_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="BranchImport_List">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadImport_List_HeadImport">
+    <End Role="HeadImport" Type="Self.HeadImport" Multiplicity="1" />
+    <End Role="HeadImport_List" Type="Self.HeadImport_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadImport">
+        <PropertyRef Name="IDHeadImport" />
+      </Principal>
+      <Dependent Role="HeadImport_List">
+        <PropertyRef Name="IDHeadImport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadImport_requestImport">
+    <End Role="requestImport" Type="Self.requestImport" Multiplicity="1" />
+    <End Role="HeadImport" Type="Self.HeadImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="requestImport">
+        <PropertyRef Name="IDRequestImport" />
+      </Principal>
+      <Dependent Role="HeadImport">
+        <PropertyRef Name="IDrequestImport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadImport_List_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="HeadImport_List" Type="Self.HeadImport_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="HeadImport_List">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PriceHistory_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="PriceHistory" Type="Self.PriceHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="PriceHistory">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductType">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="IDType" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IDType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="IDSupplier" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IDSupplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Promotion_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Promotion" Type="Self.Promotion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="Promotion">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_requestImport_List_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="requestImport_List" Type="Self.requestImport_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="requestImport_List">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_requestImport_List_requestImport">
+    <End Role="requestImport" Type="Self.requestImport" Multiplicity="1" />
+    <End Role="requestImport_List" Type="Self.requestImport_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="requestImport">
+        <PropertyRef Name="IDRequestImport" />
+      </Principal>
+      <Dependent Role="requestImport_List">
+        <PropertyRef Name="IDRequestImport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_requestImport_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="requestImport" Type="Self.requestImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="IDSupplier" />
+      </Principal>
+      <Dependent Role="requestImport">
+        <PropertyRef Name="IDSupplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CMART1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="Bill_List" EntityType="Self.Bill_List" />
+    <EntitySet Name="BranchImports" EntityType="Self.BranchImport" />
+    <EntitySet Name="BranchImport_List" EntityType="Self.BranchImport_List" />
+    <EntitySet Name="HeadImports" EntityType="Self.HeadImport" />
+    <EntitySet Name="HeadImport_List" EntityType="Self.HeadImport_List" />
+    <EntitySet Name="PriceHistories" EntityType="Self.PriceHistory" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+    <EntitySet Name="Promotions" EntityType="Self.Promotion" />
+    <EntitySet Name="requestImports" EntityType="Self.requestImport" />
+    <EntitySet Name="requestImport_List" EntityType="Self.requestImport_List" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Bill_Account" Association="Self.FK_Bill_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_requestImport_Account" Association="Self.FK_requestImport_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="requestImport" EntitySet="requestImports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bill_List_Bill" Association="Self.FK_Bill_List_Bill">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="Bill_List" EntitySet="Bill_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bill_List_Product" Association="Self.FK_Bill_List_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Bill_List" EntitySet="Bill_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BranchImport_HeadImport" Association="Self.FK_BranchImport_HeadImport">
+      <End Role="HeadImport" EntitySet="HeadImports" />
+      <End Role="BranchImport" EntitySet="BranchImports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BranchImport_List_BranchImport" Association="Self.FK_BranchImport_List_BranchImport">
+      <End Role="BranchImport" EntitySet="BranchImports" />
+      <End Role="BranchImport_List" EntitySet="BranchImport_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BranchImport_List_Product" Association="Self.FK_BranchImport_List_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="BranchImport_List" EntitySet="BranchImport_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadImport_List_HeadImport" Association="Self.FK_HeadImport_List_HeadImport">
+      <End Role="HeadImport" EntitySet="HeadImports" />
+      <End Role="HeadImport_List" EntitySet="HeadImport_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadImport_requestImport" Association="Self.FK_HeadImport_requestImport">
+      <End Role="requestImport" EntitySet="requestImports" />
+      <End Role="HeadImport" EntitySet="HeadImports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadImport_List_Product" Association="Self.FK_HeadImport_List_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="HeadImport_List" EntitySet="HeadImport_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PriceHistory_Product" Association="Self.FK_PriceHistory_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PriceHistory" EntitySet="PriceHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+      <End Role="ProductType" EntitySet="ProductTypes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Supplier" Association="Self.FK_Product_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Promotion_Product" Association="Self.FK_Promotion_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Promotion" EntitySet="Promotions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_requestImport_List_Product" Association="Self.FK_requestImport_List_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="requestImport_List" EntitySet="requestImport_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_requestImport_List_requestImport" Association="Self.FK_requestImport_List_requestImport">
+      <End Role="requestImport" EntitySet="requestImports" />
+      <End Role="requestImport_List" EntitySet="requestImport_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_requestImport_Supplier" Association="Self.FK_requestImport_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="requestImport" EntitySet="requestImports" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CMART1Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CMART1Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spGetProducts" ReturnType="Collection(CMART1Model.spGetProducts_Result)" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetProducts_Result">
+    <Property Type="Int32" Name="IDProduct" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IDType" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="IDSupplier" Nullable="false" MaxLength="7" />
+  </ComplexType>
+</Schema>

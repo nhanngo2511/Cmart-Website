@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d840777ee68742c394158e9df6a2299c" Name="Diagram1">
+        <EntityTypeShape EntityType="CMART1Model.Account" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.Bill" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.Bill_List" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.BranchImport" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.BranchImport_List" Width="1.5" PointX="12.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.HeadImport" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.HeadImport_List" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.PriceHistory" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.Product" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.ProductType" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.Promotion" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.requestImport" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.requestImport_List" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.Supplier" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART1Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CMART1Model.FK_Bill_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_requestImport_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_Bill_List_Bill" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_Bill_List_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_BranchImport_HeadImport" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_BranchImport_List_BranchImport" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_BranchImport_List_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_HeadImport_List_HeadImport" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_HeadImport_requestImport" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_HeadImport_List_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_PriceHistory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_Product_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_Promotion_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_requestImport_List_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_requestImport_List_requestImport" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART1Model.FK_requestImport_Supplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CMart_Website.Models.Promotion>
+@{
+    ViewBag.Title = "C-Mart Store - Promotions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Promotions</h2>
+<title>@ViewBag.Title</title>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    
+    <div class="carousel-inner" role="listbox">
+
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <img src="~/Asset/themes/images/promotions/@item.Image" alt="..." style="width:100%">
+            </div>
+        }
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only"><</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">></span>
+    </a>
+</div>
+

@@ -1,0 +1,77 @@
+﻿@model CMart_Website.Models.Contact
+
+@{
+    ViewBag.Title = "C-Mart Store - Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contact</h2>
+<title>@ViewBag.Title</title>
+<section class="main-content">
+    <div class="row">
+        <div class="span5">
+            <div>
+                <h5>First Branch</h5>
+                <p>
+                    <strong>Phone:</strong>&nbsp;(84) 456-7890<br>
+                    <strong>Address:</strong>123A The Street District 5, Ward 5, ABC City<br>
+                    <strong>Email:</strong>&nbsp;<a href="#">cmartvanlanguni@gmail.com</a>
+                </p>
+                <br />
+                <h5>SECONDARY OFFICE IN VIETNAM</h5>
+                <p>
+                    <strong>Phone:</strong>&nbsp;(84) 023-1125<br>
+                    <strong>Address:</strong>13B The Street District 5, Ward 1, ABC City<br>
+                    <strong>Email:</strong>&nbsp;<a href="#">cmartvanlanguni@gmail.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="span7">
+            <p>Get access to the largest customer base in Southeast Asia and an end-to-end selling solution.</p>
+            <form method="post" action="Contact">
+                <fieldset>
+                    <div class="clearfix">
+                        <label for="name"><span>Name:</span></label>
+                        <div class="input">
+                            @*<input tabindex="1" size="18" id="name" name="name" type="text" value="" class="input-xlarge" placeholder="Name">*@
+                            @Html.TextBoxFor(Model => Model.Name, new { tabindex = "1", @size = "18", @id = "name", @name = "name", @type = "text", @value = "", @class = "input-xlarge", @placeholder = "Name" })
+                            @Html.ValidationMessageFor(Model => Model.Name)
+                        </div>
+                    </div>
+
+                    <div class="clearfix">
+                        <label for="email"><span>Email:</span></label>
+                        <div class="input">
+                            @*<input tabindex="2" size="25" id="email" name="email" type="text" value="" class="input-xlarge" placeholder="Email Address">*@
+                            @Html.TextBoxFor(Model => Model.Email, new { @tabindex="2", @size="25", @id="email", @name="to", @type="text", @value="", @class="input-xlarge", @placeholder="Email Address"})
+                            @Html.ValidationMessageFor(Model => Model.Email)
+                        </div>
+                    </div>
+
+                    <div class="clearfix">
+                        <label for="email"><span>Subject:</span></label>
+                        <div class="input">
+                            @*<input tabindex="2" size="25" id="email" name="email" type="text" value="" class="input-xlarge" placeholder="Email Address">*@
+                            @Html.TextBoxFor(Model => Model.Subject, new { @tabindex = "2", @size = "25", @id = "email", @name = "subject", @type = "text", @value = "", @class = "input-xlarge", @placeholder = "Subject" })
+                            @Html.ValidationMessageFor(Model => Model.Subject)
+                        </div>
+                    </div>
+
+                    <div class="clearfix">
+                        <label for="message"><span>Message:</span></label>
+                        <div class="input">
+                            @*<textarea tabindex="3" class="input-xlarge" id="message" name="body" rows="7" placeholder="Message"></textarea>*@
+                            @Html.TextAreaFor(Model => Model.Message, new {@class="input-xlarge", @id="message", @name="body", @rows="7", @placeholder="Message"})
+                            @Html.ValidationMessageFor(Model => Model.Message)
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button tabindex="3" type="submit" class="btn btn-inverse">Send message</button>
+                    </div>
+                    <div>@ViewBag.s</div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>			

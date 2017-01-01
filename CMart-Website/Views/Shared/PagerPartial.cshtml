@@ -1,0 +1,23 @@
+﻿@model PagedList.IPagedList<CMart_Website.Models.Product>
+@using PagedList.Mvc;
+
+@{
+    
+    string action = "index";
+    var IDtype = Request.QueryString["IDType"];
+    
+    <div>@Request.Url.AbsoluteUri.ToString()</div>
+    
+    if (Request.Url.AbsoluteUri.ToString().Contains("?IDType"))
+    {
+        action = "Category";
+        IDtype = Request.QueryString["IDType"]; 
+    }
+    //else
+    //{
+    //    action = "Index";
+    //    IDtype = "";
+    //}
+
+    @Html.PagedListPager(Model, page => Url.Action(action, "Home", new { IDtype, page }));
+}

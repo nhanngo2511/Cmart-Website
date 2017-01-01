@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>C-Mart Store</title>
+    <link rel="icon"
+          type="image/png"
+          href="~/Asset/themes/images/icon.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link href="~/Asset/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Asset/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="~/Asset/themes/css/bootstrappage.css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link href="~/Asset/themes/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Asset/themes/css/main.css" rel="stylesheet" />
+
+    <!-- scripts -->
+    <script src="~/Asset/themes/js/jquery-1.7.2.min.js"></script>
+    <script src="~/Asset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Asset/themes/js/superfish.js"></script>
+    <script src="~/Asset/themes/js/jquery.scrolltotop.js"></script>
+
+    @*[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="js/respond.min.js"></script>
+        <![endif]*@
+</head>
+<body>
+    <div id="top-bar" class="container">
+        <div class="row">
+            <div class="span4">
+
+
+                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                {
+                    <form class="search_form">
+                        <input type="text" class="input-block-level search-query" placeholder="Search product name ..." name="searchstring">
+                        <input type="submit" class="btn-submit" value="Search" />
+                    </form>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <div id="wrapper" class="container">
+        <section class="navbar main-menu">
+            <div class="navbar-inner main-menu">
+                <a href="@Url.Action("Index", "Home")" class=" logo pull-left"><img src="~/Asset/themes/images/logo.png" class="site_logo" alt=""></a>
+
+                <nav id="menu" class="pull-right">
+                    <ul>
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("Promotions", "Home") ">Promotion</a></li>
+                        <!-- <li><a href="product.html">Product</a></li>							 -->
+                        <li><a href="@Url.Action("About", "Home")">About</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <section class="header_text sub">
+            @*<h4><span>New products</span></h4>*@
+        </section>
+
+        @RenderBody()
+
+        <div class="row feature_box">
+            <div class="span4">
+                <div class="service">
+                    <div class="responsive">
+                        <img src="~/Asset/themes/images/feature_img_2.png" alt="" />
+                        <h4>THANH TOÁN<strong> THẺ</strong></h4>
+                        <p>Bao gồm: Sacombank, Agribank, VietCombank,...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="service">
+                    <div class="customize">
+                        <img src="~/Asset/themes/images/feature_img_1.png" alt="" />
+                        <h4>HỖ TRỢ<strong> THANH TOÁN</strong></h4>
+                        <p>Thanh toán tiền mạng, tiền điện, tiền nước</p>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="service">
+                    <div class="support">
+                        <img src="~/Asset/themes/images/feature_img_3.png" alt="" />
+                        <h4>24/7 LIVE <strong>SUPPORT</strong></h4>
+                        <p>Luôn luôn mở cửa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="footer-bar">
+            <div class="row">
+                <div class="span3">
+                    <h4>Navigation</h4>
+                    <ul class="nav">
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("Promotions", "Home")">Promotion</a></li>
+                        <li><a href="@Url.Action("About", "Home")">About</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </section>
+        <section id="copyright">
+            <span>C-Mart Company 2016</span>
+        </section>
+    </div>
+    <script src="~/Asset/themes/js/common.js"></script>
+</body>
+</html>

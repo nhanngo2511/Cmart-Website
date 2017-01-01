@@ -1,0 +1,72 @@
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\CMart_Website.dll.config
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\CMart_Website.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\CMart_Website.pdb
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\Antlr3.Runtime.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\EntityFramework.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\Newtonsoft.Json.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Net.Http.Formatting.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Http.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Http.WebHost.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Mvc.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Optimization.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Providers.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Razor.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.WebPages.Deployment.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.WebPages.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.WebPages.Razor.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\WebGrease.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\EntityFramework.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\Newtonsoft.Json.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Net.Http.Formatting.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Http.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Http.WebHost.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Mvc.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.Razor.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.WebPages.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.WebPages.Deployment.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\System.Web.WebPages.Razor.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\obj\Debug\CMart_Website.csprojResolveAssemblyReference.cache
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\obj\Debug\CMart_Website.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\obj\Debug\CMart_Website.pdb
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\PagedList.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\PagedList.Mvc.dll
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\PagedList.xml
+C:\Users\QuiVang\Documents\Visual Studio 2013\Projects\CMart-Website\CMart-Website\bin\PagedList.Mvc.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\CMart_Website.dll.config
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\CMart_Website.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\CMart_Website.pdb
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\Antlr3.Runtime.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\EntityFramework.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\Microsoft.Web.Infrastructure.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\Newtonsoft.Json.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\PagedList.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\PagedList.Mvc.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Net.Http.Formatting.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Http.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Http.WebHost.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Mvc.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Optimization.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Providers.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Razor.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.WebPages.Deployment.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.WebPages.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.WebPages.Razor.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\WebGrease.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\PagedList.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\PagedList.Mvc.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\EntityFramework.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\Newtonsoft.Json.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Net.Http.Formatting.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Http.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Http.WebHost.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Mvc.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.Razor.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.WebPages.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.WebPages.Deployment.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\bin\System.Web.WebPages.Razor.xml
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\obj\Debug\CMart_Website.csprojResolveAssemblyReference.cache
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\obj\Debug\CMart_Website.dll
+D:\Learn\ASP.NET MVC\CMart-Website\CMart-Website\obj\Debug\CMart_Website.pdb

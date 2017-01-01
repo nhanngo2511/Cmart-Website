@@ -1,0 +1,43 @@
+﻿
+@model PagedList.IPagedList<CMart_Website.Models.Product>
+@using PagedList.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderAction("MenuPartial", "Home");
+}
+<section class="main-content">
+
+    <div class="row">
+        <div class="span9">
+            <ul class="thumbnails listing-products">
+                @foreach (var item in Model)
+                {
+
+                    <li class="span3">
+                        <div class="product-box">
+                            <span class="sale_tag"></span>
+                            <a href="#"><img alt="" src="~/Asset/themes/images/products/@item.Image"></a><br />
+                            <a href="#" class="title">@item.Name</a><br />
+                            <a href="#" class="category">@item.ProductType.Name</a>
+                        </div>
+                    </li>
+                }
+
+
+            </ul>
+
+            <div class="pagination pagination-small pagination-centered">
+               @Html.PagedListPager(Model, page => Url.Action("Index", "Home",
+                  new { page }))               
+            </div>
+          
+        </div>
+
+       
+
+    </div>
+</section>
